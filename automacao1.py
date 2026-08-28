@@ -48,11 +48,14 @@ def abrir_diretorio_principal():
     return arquivos
 
 
+# IDEIA -> SEPARAR A FUNÇÃO MOVER ARQUIVOS E A CRIAR PASTAS PARA ORGANIZAR SEM CRIAR OU ORGANIZA CRIANDO PASTAS
+
 def mover_arquivos(arquivos, values):
     """Move os arquivos para as pastas escolhidas pelo usuário."""
 
     # Cria as pastas e obtém seus respectivos destinos
     destinos = criar_pastas(values)
+    pasta_outros = values["-OUTROS-"]
 
     # Obtém a quantidade total de itens para a barra de progresso
     num_arquivos = len(arquivos)
@@ -78,6 +81,7 @@ def mover_arquivos(arquivos, values):
 
         # Caso a extensão não esteja configurada, envia para "outros"
         else:
+            os.makedirs(pasta_outros, exist_ok=True)
             shutil.move(arquivo, "outros/")
 
 
