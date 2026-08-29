@@ -9,9 +9,11 @@ def criar_pastas(values):
 
     # Relaciona cada chave da interface às suas respectivas extensões
     chaves = {
-        "-JPG-": [".jpg", ".jpeg"],
+        "-JPG-": [".jpg", ".jpeg",".png"],
         "-PDF-": [".pdf"],
-        "-EXE-": [".exe"]
+        "-DOC-": [".word",".docs",".docx",".txt"],
+        "-XLSX-": [".xlsx","xls",".csv"],
+        "-MP4-" : [".mp4",".mp3",".m4v",".m4a","wav"]
     }
 
     # Armazena a relação entre a extensão e sua pasta de destino
@@ -90,17 +92,20 @@ def mover_arquivos(arquivos, values):
 
 # Interface gráfica
 layout = [
-    [sg.Text("ORGANIZADOR DE ARQUIVOS")],
-    [sg.Text("JPG/JPEG: "), sg.Input(key="-JPG-")],
-    [sg.Text("PDF: "), sg.Input(key="-PDF-")],
-    [sg.Text("EXE: "), sg.Input(key="-EXE-")],
-    [sg.Text("OUTROS: "), sg.Input(key="-OUTROS-")],
+    [sg.Text("ORGANIZADOR DE ARQUIVOS",colors="yellow",background_color="#1E1E1E")],
+    [sg.Text("IMAGENS:",size=(10,1),background_color="#1E1E1E"),sg.Input(key="-JPG-")],
+    [sg.Text("PDF:",size=(10,1),background_color="#1E1E1E"), sg.Input(key="-PDF-")],
+    [sg.Text("WORD:",size=(10,1),background_color="#1E1E1E"), sg.Input(key="-DOC-")],
+    [sg.Text("PLANILHAS:",size=(10,1),background_color="#1E1E1E"), sg.Input(key="-XLSX-")],
+    [sg.Text("VIDEOS/MUSICAS:",size=(10,1),background_color="#1E1E1E"), sg.Input(key="-MP4-")],
+    [sg.Text("OUTROS:",size=(10,1),background_color="#1E1E1E"
+             ), sg.Input(key="-OUTROS-")],
     [sg.Button("ORGANIZAR")]
 ]
 
 
 # Cria a janela principal
-window = sg.Window("Organizador de Arquivos", layout)
+window = sg.Window("Organizador de Arquivos", layout,background_color="#1E1E1E")
 
 
 # Loop principal da interface
