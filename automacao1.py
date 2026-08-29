@@ -82,7 +82,6 @@ def mover_arquivos(arquivos, values):
         # Caso a extensão não esteja configurada, envia para "outros"
         else:
             os.makedirs(pasta_outros, exist_ok=True)
-            shutil.move(arquivo, "outros/")
 
 
     sg.popup_ok("OPERAÇÃO CONCLUÍDA COM SUCESSO!")
